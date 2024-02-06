@@ -16,7 +16,7 @@ services:
       - ALLOWEDIPS=<LOCAL_NETWORK>
     volumes:
       - ./config:/config
-      - ./modules:/lib/modules
+      - /lib/modules:/lib/modules
     networks:
       - vpn
       - local
