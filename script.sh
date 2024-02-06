@@ -63,7 +63,7 @@ sudo apt install podman podman-compose
 # create podman networks
 podman network rm vpn
 podman network rm local
-podman network create vpn --subnet 10.13.13.0/24 --ip-range 10.13.13.0/24 local
+podman network create vpn --subnet 10.13.13.0/24 --ip-range 10.13.13.0/24 vpn
 podman network create --subnet $local_network --ip-range $local_network local
 
 # create folders
