@@ -1,0 +1,23 @@
+services:
+  wireguard:
+    image: docker.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=<UID>
+      - PGID=<GID>
+      - TZ=Europe/Berlin
+      - SERVERURL=auto
+      - SERVERPORT=<WG_PORT>
+      - PEERS=<CLIENT_COUNT>
+      - ALLOWEDIPS=<LOCAL_NETWORK>
+    volumes:
+      - ./config:/config
+      - ./modules:/lib/modules
+    ports:
+      - <WG_PORT>:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
