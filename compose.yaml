@@ -17,8 +17,17 @@ services:
     volumes:
       - ./config:/config
       - ./modules:/lib/modules
+    networks:
+      - vpn
+      - local
     ports:
       - <WG_PORT>:51820/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
+
+networks:
+  vpn:
+    external: true
+  local:
+    external: true
