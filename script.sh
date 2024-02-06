@@ -78,8 +78,8 @@ replace_string "<WG_PORT>" $wireguard_port compose.yaml
 replace_string "<CLIENT_COUNT>" $client_count compose.yaml
 replace_string "<LOCAL_NETWORK>" $local_network compose.yaml
 
-# start wireguard container
-podman-compose up -d --force-recreate
-
 # open wireguard port in nftables
 sudo nft add rule inet firewall incoming udp dport $wireguard_port accept
+
+# start wireguard container
+podman-compose up -d --force-recreate
