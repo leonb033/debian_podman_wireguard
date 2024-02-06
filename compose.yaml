@@ -12,6 +12,7 @@ services:
       - SERVERURL=auto
       - SERVERPORT=<WG_PORT>
       - PEERS=<CLIENT_COUNT>
+      - INTERNAL_SUBNET=10.13.13.0
       - ALLOWEDIPS=<LOCAL_NETWORK>
     volumes:
       - ./config:/config
